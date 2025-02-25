@@ -1,0 +1,47 @@
+<p>residence works!</p>
+<!--
+<table border="3">
+<tr>
+    <td>id</td>
+    <td>name</td>
+    <td>address</td>
+    <td>image</td>
+    <td>status</td>
+</tr>
+<tr *ngFor="let i of listResidences">
+    <td>{{i.id}}</td>
+    <td>{{i.name | uppercase}}</td>
+    <td>{{i.address}}</td>
+    <td><img [src]="i.image" alt="img" width="100"></td>
+    <td>{{i.status}}</td>
+
+</tr>
+
+</table>
+<input type="text" [(ngModel)]="search">
+<div *ngFor="let i of listResidences">
+    <div *ngIf="search==i.name">
+        <ul>
+            <li>{{i.name}}</li>
+        </ul>
+    </div>
+</div>
+-->
+<div class="row">
+<div *ngFor="let i of listServiceResidence" class="card m-3" style="width: 18rem;">
+    <img [src]="i.image" class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{i.name | uppercase}}</h5>
+      <p class="card-text">{{i.address}}</p>
+      <a href="#" class="btn btn-primary" (click)="show(i)">Show Location</a>
+     
+      <button class="btn btn-danger" (click)="deleteResidence(i.id)">Delete</button>
+      <button class="btn btn-dark" [routerLink]="['detailsresidence',i.id]">Show Details</button>
+    </div>
+  </div>
+</div>
+  <button class="btn btn-success" (click)="shownumber()">show number</button>
+<div *ngIf="num != null"> le nombre est: {{num}}</div> 
+ 
+
+

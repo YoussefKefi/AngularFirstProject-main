@@ -1,0 +1,47 @@
+<p>form-residence works!</p>
+<div class="container">
+<form [formGroup]="formR">
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="">id</span>
+        </div>
+        <input type="text" class="form-control" formControlName="id">
+      </div>
+      <div class="alert alert-danger" *ngIf="formR.get('id')?.invalid && formR.get('id')?.touched">msg:minlength in id is 3</div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="">name</span>
+        </div>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+      <div class="alert alert-danger" *ngIf="formR.get('name')?.invalid && formR.get('name')?.touched">msg:Letter Az in name</div>
+
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="">address</span>
+        </div>
+        <input type="text" class="form-control" formControlName="address">
+      </div>
+      <div class="alert alert-danger" *ngIf="formR.get('address')?.errors?.['maxlength']">msg:Max length is 10</div>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="">image</span>
+        </div>
+        <input type="text" class="form-control" formControlName="image">
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="">status</span>
+        </div>
+        <input type="text" class="form-control" formControlName="status">
+      </div>
+      <div class="alert alert-danger" *ngIf="status?.invalid && status?.touched">msg:il faut etre disponible</div>
+
+      <button class="btn btn-primary" (click)="add()" [disabled]="formR.invalid" >save</button>
+</form>
+</div>
+

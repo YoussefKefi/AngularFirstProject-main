@@ -1,3 +1,7 @@
+1-npm install
+2-npm -i -g json-server
+3-json-server --watch db.json
+
 # FirstProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.

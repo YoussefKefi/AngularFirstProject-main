@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Residence } from 'src/core/models/residence';
 import { ResidenceService } from '../service/residence.service';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-residence',
@@ -22,7 +23,30 @@ constructor(private resService:ResidenceService) {
     console.log(this.listServiceResidence)
    })
   }
+// Add these properties to your component class
+residenceToDelete: number | null = null;
+private modalRef: any;
 
+// Add these methods to your component class
+confirmDelete(id: number) {
+  this.residenceToDelete = id;
+  // Open the modal using Bootstrap's modal API
+  const modalElement = document.getElementById('deleteConfirmationModal');
+  if (modalElement) {
+    this.modalRef = new bootstrap.Modal(modalElement);
+    this.modalRef.show();
+  }
+}
+
+confirmDeleteAction() {
+  if (this.residenceToDelete !== null) {
+    this.deleteResidence(this.residenceToDelete);
+    this.modalRef.hide();
+    this.residenceToDelete = null;
+  }
+}
+
+// Your existing deleteResidence method should handle the actual deletion
   listResidences:Residence[]=[
     {id:1,"name": "El fel","address":"Borj Cedria",
     "image":"../../assets/images/R1.jpg", status: "Disponible"},

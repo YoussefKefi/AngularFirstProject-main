@@ -1,33 +1,5 @@
-
-<!--
-<table border="3">
-<tr>
-    <td>id</td>
-    <td>name</td>
-    <td>address</td>
-    <td>image</td>
-    <td>status</td>
-</tr>
-<tr *ngFor="let i of listResidences">
-    <td>{{i.id}}</td>
-    <td>{{i.name | uppercase}}</td>
-    <td>{{i.address}}</td>
-    <td><img [src]="i.image" alt="img" width="100"></td>
-    <td>{{i.status}}</td>
-
-</tr>
-
-</table>
-<input type="text" [(ngModel)]="search">
-<div *ngFor="let i of listResidences">
-    <div *ngIf="search==i.name">
-        <ul>
-            <li>{{i.name}}</li>
-        </ul>
-    </div>
-</div>
--->
 <div class="container py-4">
+  <!-- Residence Cards Grid -->
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <div class="col" *ngFor="let i of listServiceResidence">
       <div class="card h-100 shadow-sm border-0 hover-shadow transition">
@@ -48,7 +20,7 @@
               <button class="btn btn-outline-primary btn-sm" [routerLink]="['update',i.id]">
                 <i class="fas fa-edit me-1"></i>Update
               </button>
-              <button class="btn btn-outline-danger btn-sm" (click)="deleteResidence(i.id)">
+              <button class="btn btn-outline-danger btn-sm" (click)="confirmDelete(i.id)">
                 <i class="fas fa-trash-alt me-1"></i>Delete
               </button>
             </div>
@@ -58,6 +30,7 @@
     </div>
   </div>
   
+  <!-- Show Number Button and Result -->
   <div class="d-flex align-items-center mt-4">
     <button class="btn btn-success me-3" (click)="shownumber()">
       <i class="fas fa-calculator me-2"></i>Show Number
@@ -66,7 +39,33 @@
       <strong>Total count:</strong> {{num}}
     </div>
   </div>
+  
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Deletion</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-exclamation-triangle text-warning fs-1 me-3"></i>
+            <div>
+              <p class="mb-1">Are you sure you want to delete this residence?</p>
+              <p class="mb-0 text-danger"><strong>This action cannot be undone.</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <i class="fas fa-times me-2"></i>Cancel
+          </button>
+          <button type="button" class="btn btn-danger" (click)="confirmDeleteAction()">
+            <i class="fas fa-trash-alt me-2"></i>Delete Permanently
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
- 
-
-

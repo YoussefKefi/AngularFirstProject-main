@@ -1,14 +1,44 @@
-<p>details works!</p>
-{{id}}
-{{listresidence.id}}
-<br>
-{{listresidence.name}}
-<br>
-{{listresidence.address}}
-<br>
-{{listresidence.image}}
-<img [src]="listresidence.image" class="card-img-top" alt="img" width="100">
-<br>
-{{listresidence.status}}
-<br>
-<button class="btn btn-dark" routerLink="/residence">Redirect to Residence</button>
+<div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-dark text-white py-3">
+            <h3 class="mb-0">Residence Details</h3>
+          </div>
+          
+          <div class="card-body p-0">
+            <!-- Featured Image -->
+            <img [src]="listresidence.image" class="card-img-top img-fluid" alt="Residence image">
+            
+            <!-- Details Section -->
+            <div class="p-4">
+              <h2 class="mb-4 fw-bold">{{listresidence.name}}</h2>
+              
+              <div class="mb-3">
+                <span class="badge bg-primary mb-2">ID: {{listresidence.id}}</span>
+                <span class="badge bg-success ms-2 mb-2">Status: {{listresidence.status}}</span>
+              </div>
+              
+              <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-map-marker-alt text-danger me-2 fs-5"></i>
+                <span class="text-muted">{{listresidence.address}}</span>
+              </div>
+              
+              <hr class="my-4">
+              
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-dark" routerLink="/residence">
+                  <i class="fas fa-arrow-left me-2"></i>Back to Residence List
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Debug info if needed -->
+        <div class="mt-4 small text-muted">
+          <p>Page ID: {{id}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -19,6 +19,7 @@ import { MenuComponent } from './nav/menu/menu.component';
 import { FormResidenceComponent } from './form-residence/form-residence.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DetailsComponent } from './details/details.component';
+import { UpdateComponent } from './update/update.component';
 
 
 
@@ -35,6 +36,7 @@ import { DetailsComponent } from './details/details.component';
     MenuComponent,
     FormResidenceComponent,
     DetailsComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,

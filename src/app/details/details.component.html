@@ -1,2 +1,14 @@
 <p>details works!</p>
 {{id}}
+{{listresidence.id}}
+<br>
+{{listresidence.name}}
+<br>
+{{listresidence.address}}
+<br>
+{{listresidence.image}}
+<img [src]="listresidence.image" class="card-img-top" alt="img" width="100">
+<br>
+{{listresidence.status}}
+<br>
+<button class="btn btn-dark" routerLink="/residence">Redirect to Residence</button>

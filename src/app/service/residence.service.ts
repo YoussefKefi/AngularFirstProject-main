@@ -25,8 +25,8 @@ getAllResidence():Observable<Residence[]>{
   return this.http.get<Residence[]>(this.UrlResidence)
 }
 
-getResidence(id:any):Observable<Residence[]>{
-  return this.http.get<Residence[]>(this.UrlResidence+'/'+id)
+getResidence(id:any):Observable<Residence>{
+  return this.http.get<Residence>(this.UrlResidence+'/'+id)
 }
 
 deleteResidence(id:any):Observable<Residence[]>{

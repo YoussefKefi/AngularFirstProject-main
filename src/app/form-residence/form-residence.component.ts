@@ -13,9 +13,9 @@ export class FormResidenceComponent implements OnInit{
   constructor(private resService:ResidenceService, private router:Router) { }
   ngOnInit(): void {
   this.formR=new FormGroup({
-    id:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    id:new FormControl('',[Validators.required,Validators.minLength(1)]),
     name:new FormControl('',[Validators.required,Validators.pattern(/^[A-Z][a-z]/)]),
-    address:new FormControl('',[Validators.required,Validators.maxLength(10)]),
+    address:new FormControl('',[Validators.required,Validators.maxLength(20)]),
     image:new FormControl('../../assets/images/R3.jpg',Validators.required),
     status:new FormControl('',[Validators.required,Validators.pattern(/^disponible$/)]),
 

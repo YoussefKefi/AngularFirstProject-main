@@ -12,7 +12,7 @@ export class HomeComponent {
   //property binding 
   status=false;
   //twoway databinding
-search="hello"
+  search="search"
   // event binding
   add(){
     console.log("hello arctic8");

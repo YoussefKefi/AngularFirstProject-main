@@ -1,4 +1,4 @@
-<p>residence works!</p>
+
 <!--
 <table border="3">
 <tr>
@@ -27,21 +27,46 @@
     </div>
 </div>
 -->
-<div class="row">
-<div *ngFor="let i of listServiceResidence" class="card m-3" style="width: 18rem;">
-    <img [src]="i.image" class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{i.name | uppercase}}</h5>
-      <p class="card-text">{{i.address}}</p>
-      <a href="#" class="btn btn-primary" (click)="show(i)">Show Location</a>
-     
-      <button class="btn btn-danger" (click)="deleteResidence(i.id)">Delete</button>
-      <button class="btn btn-dark" [routerLink]="['detailsresidence',i.id]">Show Details</button>
+<div class="container py-4">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col" *ngFor="let i of listServiceResidence">
+      <div class="card h-100 shadow-sm border-0 hover-shadow transition">
+        <img [src]="i.image" class="card-img-top img-fluid" alt="{{i.name}} image">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-3">{{i.name | uppercase}}</h5>
+          <p class="card-text text-muted mb-3">
+            <i class="fas fa-map-marker-alt me-2"></i>{{i.address}}
+          </p>
+          <div class="d-flex flex-column gap-2 mt-auto">
+            <a href="#" class="btn btn-primary" (click)="show(i)">
+              <i class="fas fa-map me-2"></i>Show Location
+            </a>
+            <div class="btn-group mt-2">
+              <button class="btn btn-outline-dark btn-sm" [routerLink]="['detailsresidence',i.id]">
+                <i class="fas fa-info-circle me-1"></i>Details
+              </button>
+              <button class="btn btn-outline-primary btn-sm" [routerLink]="['update',i.id]">
+                <i class="fas fa-edit me-1"></i>Update
+              </button>
+              <button class="btn btn-outline-danger btn-sm" (click)="deleteResidence(i.id)">
+                <i class="fas fa-trash-alt me-1"></i>Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="d-flex align-items-center mt-4">
+    <button class="btn btn-success me-3" (click)="shownumber()">
+      <i class="fas fa-calculator me-2"></i>Show Number
+    </button>
+    <div *ngIf="num != null" class="alert alert-info py-2 px-3 mb-0">
+      <strong>Total count:</strong> {{num}}
     </div>
   </div>
 </div>
-  <button class="btn btn-success" (click)="shownumber()">show number</button>
-<div *ngIf="num != null"> le nombre est: {{num}}</div> 
  
 
 
